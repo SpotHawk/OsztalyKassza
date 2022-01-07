@@ -7,14 +7,14 @@ namespace OsztalyKassza
     class Diak
     {
         private string nev;
-        private int omAz;
+        private string omAz;
         private int befOssz;
         private int befSzam;
         private int egyenleg;
 
         public Diak() { }
 
-        public Diak(string nev,int omAz)
+        public Diak(string nev,string omAz)
         {
             this.nev = nev;
             this.omAz = omAz;
@@ -34,13 +34,22 @@ namespace OsztalyKassza
             befSzam++;
             egyenleg += 3000;
         }
+        public void osztalyPenzBefizetes(int osszeg)
+        {
+            befOssz += osszeg;
+            befSzam++;
+            egyenleg += osszeg;
+        }
         public int visszateritendo()
         {
-            if (egyenleg>0)
+            if (egyenleg > 0)
             {
                 return egyenleg;
             }
-            return 0;
+            else 
+            {
+                return 0;
+            }
         }
 
         public void kiadas(int osszeg)
