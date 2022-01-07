@@ -16,6 +16,7 @@ namespace OsztalyKassza
             befizetesek(osztalyPenz);
             kirandulas(40000);
             tartozoDiakok();
+            visszafizetes();
 
             kiiras();
             Console.ReadKey();
@@ -100,6 +101,14 @@ namespace OsztalyKassza
             catch(IOException e)
             {
                 Console.WriteLine($"Hiba: {e}");
+            }
+        }
+
+        static void visszafizetes()
+        {
+            for (int i = 0; i < osztaly.Count; i++)
+            {
+                Console.WriteLine($"{osztaly[i].getNev()}: {osztaly[i].visszateritendo()} Ft");
             }
         }
     }
